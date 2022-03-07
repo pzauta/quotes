@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'quote.dart';
 
 void main() => runApp(MaterialApp(
@@ -25,8 +26,32 @@ class _QuoteListState extends State<QuoteList> {
     Quote('oscar Wild4', 'new strange Text'),
     Quote('oscar Wild5', 'new strange Text'),
     Quote('oscar Wild6', 'new strange Text'),
-
   ];
+  Widget quoteTemplate(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            quote.text,
+            style: TextStyle(
+              color: Colors.grey[600],
+              fontSize: 18,
+            ),
+          ),
+          SizedBox(height: 6.0),
+          Text(
+            quote.author,
+            style: TextStyle(
+              color: Colors.grey[800],
+              fontSize: 14,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +63,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => Text("${quote.text} - ${quote.author}")).toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
