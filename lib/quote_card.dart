@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'quote.dart';
 
 class QuoteCard extends StatelessWidget {
-
   final Quote quote;
   final VoidCallback delete;
   final VoidCallback copy;
-  QuoteCard({ required this.quote, required this.delete, required this.copy });
+
+  QuoteCard({required this.quote, required this.delete, required this.copy});
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +36,15 @@ class QuoteCard extends StatelessWidget {
               TextButton.icon(
                 onPressed: delete,
                 label: Text('delete quote'),
-                icon: Icon(Icons.delete,color: Colors.red[300]),
-              ),TextButton.icon(
+                icon: Icon(Icons.delete, color: Colors.red[300]),
+              ),
+              TextButton.icon(
                 onPressed: copy,
                 label: Text('copy'),
-                icon: Icon(Icons.copy,color: Colors.green[300]),
+                icon: Icon(Icons.copy, color: Colors.green[300]),
               )
             ],
           ),
-        )
-    );
+        ));
   }
 }
