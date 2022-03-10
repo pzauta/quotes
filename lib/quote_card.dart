@@ -5,7 +5,8 @@ class QuoteCard extends StatelessWidget {
 
   final Quote quote;
   final VoidCallback delete;
-  QuoteCard({ required this.quote, required this.delete });
+  final VoidCallback copy;
+  QuoteCard({ required this.quote, required this.delete, required this.copy });
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,14 @@ class QuoteCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.0),
-              FlatButton.icon(
+              TextButton.icon(
                 onPressed: delete,
                 label: Text('delete quote'),
-                icon: Icon(Icons.delete),
+                icon: Icon(Icons.delete,color: Colors.red[300]),
+              ),TextButton.icon(
+                onPressed: copy,
+                label: Text('copy'),
+                icon: Icon(Icons.copy,color: Colors.green[300]),
               )
             ],
           ),
